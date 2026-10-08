@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class SmartEnergyMeter {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("===== SMART ENERGY METER =====");
+
+        // Input voltage
+        System.out.print("Enter Voltage (V): ");
+        double voltage = scanner.nextDouble();
+
+        // Input current
+        System.out.print("Enter Current (A): ");
+        double current = scanner.nextDouble();
+
+        // Input operating time
+        System.out.print("Enter Usage Time (hours): ");
+        double hours = scanner.nextDouble();
+
+        // Electricity tariff
+        System.out.print("Enter Electricity Rate (₹ per kWh): ");
+        double rate = scanner.nextDouble();
+
+        // Calculate power
+        double power = voltage * current;
+
+        // Convert watts to kilowatts
+        double powerKW = power / 1000;
+
+        // Calculate energy
+        double energy = powerKW * hours;
+
+        // Calculate cost
+        double cost = energy * rate;
+
+        // Display results
+        System.out.println("\n===== ENERGY REPORT =====");
+
+        System.out.printf("Voltage       : %.2f V%n", voltage);
+        System.out.printf("Current       : %.2f A%n", current);
+        System.out.printf("Power         : %.2f W%n", power);
+        System.out.printf("Energy Used   : %.2f kWh%n", energy);
+        System.out.printf("Electricity Cost: ₹%.2f%n", cost);
+
+        scanner.close();
+    }
+}
